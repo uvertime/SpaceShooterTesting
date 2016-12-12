@@ -11,7 +11,8 @@ public class GameController : MonoBehaviour {
 	public float waveWait;
 	public GUIText scoreText;
 	private  int score;
-
+	private  int wavet;
+	public GUIText WaveText;
 	public GUIText restartText;
 	public GUIText gameOverText;
 	private bool gameOver;
@@ -23,6 +24,8 @@ public class GameController : MonoBehaviour {
 		gameOverText.text = "";
 		score = 0;
 		UpdateScore ();
+		wavet = 1;
+		UpdateWave ();
 		StartCoroutine (SpawnWaves ());
 	}
 
@@ -40,6 +43,8 @@ public class GameController : MonoBehaviour {
 		yield return new WaitForSeconds (startWait);
 		while(true)
 		{
+			yield return new WaitForSeconds (waveWait);
+			WaveText.text = "";
 			for (int i=0;i<hazardCount;i++) 
 			{
 				int x = Random.Range (0, hazard.Length);
@@ -47,8 +52,12 @@ public class GameController : MonoBehaviour {
 				Quaternion spawnRotation = Quaternion.Euler(0,180,0);
 				Instantiate (hazard[x], spawnPosition, spawnRotation);
 				yield return new WaitForSeconds (spawnWait);
+
 			}
 			yield return new WaitForSeconds (waveWait);
+			Debug.Log("halo score");
+			wavet++;
+			UpdateWave ();
 			if (gameOver) {
 				restartText.text = "Press 'R' for Restart";
 				restart = true ;
@@ -71,6 +80,11 @@ public class GameController : MonoBehaviour {
 	public void GameOver(){
 		gameOverText.text = "Game Over";
 		gameOver = true;
+	}
+
+	void UpdateWave()
+	{
+		WaveText.text = "Wave " + wavet;
 	}
 
 }

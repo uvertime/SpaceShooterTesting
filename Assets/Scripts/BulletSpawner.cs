@@ -11,7 +11,7 @@ public class BulletSpawner : MonoBehaviour {
 	private float nextFire;
 	public GameObject playerExplosion;
 
-	void OnTriggerEnter(Collider other){
+	/*void OnTriggerEnter(Collider other){
 		if (other.tag == "Player") {
 			Instantiate (playerExplosion, other.transform.position, other.transform.rotation);
 			gameController.GameOver ();
@@ -19,7 +19,7 @@ public class BulletSpawner : MonoBehaviour {
 			Destroy (gameObject);
 		}
 
-	}
+	}*/
 
 	void Update () {
 
