@@ -39,11 +39,9 @@ public class DestroyByContact : MonoBehaviour {
 		}
 
 		Instantiate (explosion, transform.position, transform.rotation);
-
 		Destroy(other.gameObject);
 		Destroy(gameObject);
-		Debug.Log ("masuk");
-
+		//Debug.Log ("masuk");
 		gameController.AddScore (scoreValue);
 	}
 
