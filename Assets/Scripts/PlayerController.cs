@@ -66,7 +66,6 @@ public class PlayerController : MonoBehaviour {
 			Destroy (other.gameObject);
 			Destroy (gameObject);
 			gameController.GameOver();
-			Debug.Log ("masuk");
 		}
 
 	}

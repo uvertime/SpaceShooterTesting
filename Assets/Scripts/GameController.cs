@@ -44,7 +44,7 @@ public class GameController : MonoBehaviour {
 			{
 				int x = Random.Range (0, hazard.Length);
 				Vector3 spawnPosition = new Vector3 (Random.Range (-spawnValues.x, spawnValues.x), spawnValues.y, spawnValues.z);
-				Quaternion spawnRotation = Quaternion.identity;
+				Quaternion spawnRotation = Quaternion.Euler(0,180,0);
 				Instantiate (hazard[x], spawnPosition, spawnRotation);
 				yield return new WaitForSeconds (spawnWait);
 			}
