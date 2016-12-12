@@ -2,8 +2,8 @@
 using System.Collections;
 
 public class DestroyByBullet : MonoBehaviour {
-	public GameObject explosion;
 	public GameObject playerExplosion;
+	public int scoreValue;
 	private GameController gameController;
 	private PlayerController playerController;
 
@@ -18,10 +18,11 @@ public class DestroyByBullet : MonoBehaviour {
 
 		}
 	}
-		
+
+
 
 	void OnTriggerEnter(Collider other){
-		if (other.tag == "Player"){
+		if (other.tag == "enemy"){
 			/*if (Input.GetButton ("Dash")) {
 				return;
 			}
@@ -29,17 +30,13 @@ public class DestroyByBullet : MonoBehaviour {
 			Instantiate (playerExplosion, other.transform.position, other.transform.rotation);
 			gameController.GameOver ();
 		}
-		if (other.tag == "Boundary") {
+		if(other.tag == "Player"){
 			return;
 		}
-		if (other.tag == "enemy") {
-			return;
-		}
-
-		Instantiate (explosion, transform.position, transform.rotation);
-
 		Destroy(other.gameObject);
 		Destroy(gameObject);
+		Debug.Log ("masuk");
+
 	}
 
 }

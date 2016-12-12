@@ -7,6 +7,8 @@ public class Boundary
 }
 
 public class PlayerController : MonoBehaviour {
+	public GameController gameController;
+	public GameObject playerExplosion;
 	public float speed;
 	public float tilt;
 	public Boundary boundary;
@@ -14,10 +16,20 @@ public class PlayerController : MonoBehaviour {
 	public Transform shotSpawn;
 	public float fireRate;
 	private float dash;
-	private GameController gameController;
-	public GameObject playerExplosion;
+	private PlayerController playerController;
 
 	private float nextFire;
+	void Start()
+	{
+		GameObject gameControllerObject = GameObject.FindWithTag ("GameController");
+		if (gameControllerObject != null) {
+			gameController = gameControllerObject.GetComponent <GameController> ();
+		}
+		if (gameController == null) {
+			Debug.Log ("Cannot Find 'GameController' script");
+
+		}
+	}
 	void Update()
 	{
 		if (Input.GetButton ("Fire1") && Time.time > nextFire) {
@@ -47,13 +59,15 @@ public class PlayerController : MonoBehaviour {
 				GetComponent<Rigidbody> ().rotation = Quaternion.Euler (0.0f, 0.0f, GetComponent<Rigidbody> ().velocity.x * -tilt);
 	}
 
-	/*void OnTriggerEnter(Collider other){
+	void OnTriggerEnter(Collider other){
 		if (other.tag == "enemy") {
-			//Destroy (other.gameObject);
+			Instantiate (playerExplosion, other.transform.position, other.transform.rotation);
+
+			Destroy (other.gameObject);
 			Destroy (gameObject);
-			//Instantiate (playerExplosion, other.transform.position, other.transform.rotation);
-			gameController.GameOver ();
+			gameController.GameOver();
+			Debug.Log ("masuk");
 		}
 
-	}*/
+	}
 }

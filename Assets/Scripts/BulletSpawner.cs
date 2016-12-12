@@ -12,11 +12,11 @@ public class BulletSpawner : MonoBehaviour {
 	public GameObject playerExplosion;
 
 	void OnTriggerEnter(Collider other){
-		if (other.tag == "player") {
-			//Destroy (other.gameObject);
-			Destroy (gameObject);
-			//Instantiate (playerExplosion, other.transform.position, other.transform.rotation);
+		if (other.tag == "Player") {
+			Instantiate (playerExplosion, other.transform.position, other.transform.rotation);
 			gameController.GameOver ();
+			Destroy (other.gameObject);
+			Destroy (gameObject);
 		}
 
 	}
