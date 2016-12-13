@@ -50,6 +50,7 @@ public class GameController : MonoBehaviour {
 			wavedone = false;
 			StartCoroutine (levelcount ());
 			yield return new WaitUntil (()=>wavedone||gameOver);
+			yield return new WaitForSeconds (waveWait);
 			wavet++;
 			if (gameOver) {
 				restartText.text = "Press 'R' for Restart";
@@ -89,8 +90,30 @@ public class GameController : MonoBehaviour {
 	IEnumerator levelcount()
 	{
 		
+		if (wavet == 1) {
+			for (int i = 0; i < 6; i++) {	
+			Vector3 spawnPosition = new Vector3 (-5, spawnValues.y, spawnValues.z);
+			Quaternion spawnRotation = Quaternion.Euler (0, 180, 0);
+			Instantiate (hazard [0], spawnPosition, spawnRotation);
+			spawnPosition = new Vector3 (5, spawnValues.y, spawnValues.z);
+			spawnRotation = Quaternion.Euler (0, 180, 0);
+			Instantiate (hazard [0], spawnPosition, spawnRotation);
+				yield return new WaitForSeconds ((float)0.1);
+			spawnPosition = new Vector3 (-3, spawnValues.y, spawnValues.z);
+			spawnRotation = Quaternion.Euler (0, 180, 0);
+			Instantiate (hazard [0], spawnPosition, spawnRotation);
+			spawnPosition = new Vector3 (3, spawnValues.y, spawnValues.z);
+			spawnRotation = Quaternion.Euler (0, 180, 0);
+			Instantiate (hazard [0], spawnPosition, spawnRotation);
+				yield return new WaitForSeconds ((float)0.1);
+			spawnPosition = new Vector3 (0, spawnValues.y, spawnValues.z);
+			spawnRotation = Quaternion.Euler (0, 180, 0);
+			Instantiate (hazard [0], spawnPosition, spawnRotation);
+				yield return new WaitForSeconds ((float)0.5);
 
-		if(wavet%3==1) 
+			}}
+		
+		else if(wavet%3==1) 
 		for (int i = 0; i < hazardCount; i++) {
 			int x = Random.Range (0, hazard.Length);
 			Vector3 spawnPosition = new Vector3 (Random.Range (-spawnValues.x, spawnValues.x), spawnValues.y, spawnValues.z);
