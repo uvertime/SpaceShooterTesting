@@ -36,7 +36,7 @@ public class DestroyingBullet : MonoBehaviour {
 			return;
 		}
 		if (other.tag == "enemy") {
-			Instantiate (bulletDestroy, bulletBox.transform.position, bulletBox.transform.rotation);
+			//Instantiate (bulletDestroy, bulletBox.transform.position, bulletBox.transform.rotation);
 			return;
 		}
 

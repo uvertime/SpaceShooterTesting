@@ -11,18 +11,18 @@ public class BulletDestroyed : MonoBehaviour {
 	private float nextFire;
 	public GameObject playerExplosion;
 	public GameObject bulletDestroy;
-	void OnTriggerEnter(Collider other){
+	/*void OnTriggerEnter(Collider other){
 		if (other.tag == "Player") {
 			Instantiate (bulletDestroy, bulletBox.transform.position, bulletBox.transform.rotation);
 		}
-	}
+	}*/
 
 	void Update () {
 
 		if (Time.time > nextFire) {
 			nextFire = Time.time + fireRate;
 			//GameObject clone = 
-			Instantiate (bullet, bulletBox.transform.position, bulletBox.transform.rotation); //as GameObject ;
+			Instantiate (bulletDestroy, bulletBox.transform.position, bulletBox.transform.rotation); //as GameObject ;
 			//GetComponent<AudioSource>().Play ();
 		}
 	}
