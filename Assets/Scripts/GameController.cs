@@ -45,17 +45,8 @@ public class GameController : MonoBehaviour {
 		{
 			yield return new WaitForSeconds (waveWait);
 			WaveText.text = "";
-			for (int i=0;i<hazardCount;i++) 
-			{
-				int x = Random.Range (0, hazard.Length);
-				Vector3 spawnPosition = new Vector3 (Random.Range (-spawnValues.x, spawnValues.x), spawnValues.y, spawnValues.z);
-				Quaternion spawnRotation = Quaternion.Euler(0,180,0);
-				Instantiate (hazard[x], spawnPosition, spawnRotation);
-				yield return new WaitForSeconds (spawnWait);
-
-			}
+			StartCoroutine(levelcount ());
 			yield return new WaitForSeconds (waveWait);
-			Debug.Log("halo score");
 			wavet++;
 			UpdateWave ();
 			if (gameOver) {
@@ -86,5 +77,22 @@ public class GameController : MonoBehaviour {
 	{
 		WaveText.text = "Wave " + wavet;
 	}
-
+	IEnumerator levelcount(){
+		if (wavet == 1) {
+			for (int i = 0; i < hazardCount; i++) {
+				int x = Random.Range (0, hazard.Length);
+				Vector3 spawnPosition = new Vector3 (Random.Range (-spawnValues.x, spawnValues.x), spawnValues.y, spawnValues.z);
+				Quaternion spawnRotation = Quaternion.Euler (0, 180, 0);
+				Instantiate (hazard [x], spawnPosition, spawnRotation);
+				yield return new WaitForSeconds (spawnWait);
+			}
+		} else {for (int i = 0; i < 10; i++) {
+				int x = Random.Range (0, hazard.Length);
+				Vector3 spawnPosition = new Vector3 (Random.Range (-spawnValues.x, spawnValues.x), spawnValues.y, spawnValues.z);
+				Quaternion spawnRotation = Quaternion.Euler (0, 180, 0);
+				Instantiate (hazard [x], spawnPosition, spawnRotation);
+				yield return new WaitForSeconds (spawnWait);
+			}
+		}
+	}
 }
