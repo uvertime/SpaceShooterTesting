@@ -29,7 +29,7 @@ GameObject:
   - 136: {fileID: 13661524}
   - 114: {fileID: 11437644}
   m_Layer: 0
-  m_Name: BoltEnemyLong
+  m_Name: BoltPlayerLong 1
   m_TagString: enemy
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

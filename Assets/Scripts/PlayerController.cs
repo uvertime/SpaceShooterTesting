@@ -34,16 +34,16 @@ public class PlayerController : MonoBehaviour {
 	}
 	void Update()
 	{
-		if (Input.GetKeyDown ("Fire1") && Time.time > nextFire) {
-			nextFire = Time.time + fireRate2;
-			Instantiate (bulletDestroyed,shotSpawnLong.position,shotSpawnLong.rotation);
-		}
 		if (Input.GetButton ("Fire1") && Time.time > nextFire) {
 			nextFire = Time.time + fireRate;
 			//GameObject clone = 
 			Instantiate (shot, shotSpawn.position, shotSpawn.rotation); //as GameObject ;
 			GetComponent<AudioSource>().Play ();
 		}
+		/*if (Input.GetKeyDown ("Fire1") && Time.time > nextFire) {
+			nextFire = Time.time + fireRate2;
+			Instantiate (bulletDestroyed,shotSpawnLong.position,shotSpawnLong.rotation);
+		}*/
 
 	}
 
