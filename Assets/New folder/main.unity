@@ -113,6 +113,7 @@ Transform:
   m_Children:
   - {fileID: 2025126473}
   - {fileID: 1933618589}
+  - {fileID: 932538498}
   - {fileID: 1182010076}
   m_Father: {fileID: 0}
   m_RootOrder: 2
@@ -566,6 +567,58 @@ Light:
   m_ShadowRadius: 0
   m_ShadowAngle: 0
   m_AreaSize: {x: 1, y: 1}
+--- !u!1 &932538497
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 932538498}
+  - 132: {fileID: 932538499}
+  m_Layer: 0
+  m_Name: 'WaveText '
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &932538498
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 932538497}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 1.57, y: 1.62, z: -10.61}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 138075738}
+  m_RootOrder: 2
+--- !u!132 &932538499
+GUIText:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 932538497}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Text: Wave Text
+  m_Anchor: 4
+  m_Alignment: 1
+  m_PixelOffset: {x: 0, y: 0}
+  m_LineSpacing: 1
+  m_TabSize: 4
+  m_Font: {fileID: 10102, guid: 0000000000000000e000000000000000, type: 0}
+  m_Material: {fileID: 0}
+  m_FontSize: 0
+  m_FontStyle: 0
+  m_Color:
+    serializedVersion: 2
+    rgba: 4294967295
+  m_PixelCorrect: 1
+  m_RichText: 1
 --- !u!1 &1010080278
 GameObject:
   m_ObjectHideFlags: 0
@@ -598,11 +651,12 @@ MonoBehaviour:
   - {fileID: 148108, guid: 746f0f6415bf0a74d861ad87e5249a24, type: 2}
   - {fileID: 148148, guid: f8e9765911d03a64cb2bba74e2c9d8fe, type: 2}
   spawnValues: {x: 6, y: 0, z: 16}
-  hazardCount: 5
+  hazardCount: 10
   spawnWait: 0.5
   startWait: 1
-  waveWait: 4
+  waveWait: 2
   scoreText: {fileID: 2025126471}
+  WaveText: {fileID: 932538499}
   restartText: {fileID: 1933618588}
   gameOverText: {fileID: 1182010075}
 --- !u!4 &1010080280
@@ -743,7 +797,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 138075738}
-  m_RootOrder: 2
+  m_RootOrder: 3
 --- !u!1 &1194761670
 GameObject:
   m_ObjectHideFlags: 0
