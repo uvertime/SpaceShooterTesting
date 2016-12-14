@@ -14,11 +14,13 @@ public class PlayerController : MonoBehaviour {
 	public Boundary boundary;
 	public GameObject shot;
 	public Transform shotSpawn;
+	public Transform shotSpawnLong;
 	public float fireRate;
 	private float dash;
 	private PlayerController playerController;
-
+	public GameObject bulletDestroyed;
 	private float nextFire;
+	public float fireRate2;
 	void Start()
 	{
 		GameObject gameControllerObject = GameObject.FindWithTag ("GameController");
@@ -38,6 +40,11 @@ public class PlayerController : MonoBehaviour {
 			Instantiate (shot, shotSpawn.position, shotSpawn.rotation); //as GameObject ;
 			GetComponent<AudioSource>().Play ();
 		}
+		/*if (Input.GetKeyDown ("Fire1") && Time.time > nextFire) {
+			nextFire = Time.time + fireRate2;
+			Instantiate (bulletDestroyed,shotSpawnLong.position,shotSpawnLong.rotation);
+		}*/
+
 	}
 
 	void FixedUpdate  ()
