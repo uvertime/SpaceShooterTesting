@@ -69,7 +69,6 @@ public class PlayerController : MonoBehaviour {
 	void OnTriggerEnter(Collider other){
 		if (other.tag == "enemy") {
 			Instantiate (playerExplosion, other.transform.position, other.transform.rotation);
-
 			Destroy (other.gameObject);
 			Destroy (gameObject);
 			gameController.GameOver();
