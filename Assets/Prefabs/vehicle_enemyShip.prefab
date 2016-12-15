@@ -157,7 +157,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 164590, guid: 67eceb153818d6f4fa0388a973a8dad5, type: 2}
   bulletBox: {fileID: 121650}
-  fireRate: 0.5
+  fireRate: 0.9
   playerExplosion: {fileID: 100008, guid: a93496017806b7740910df5fd946f306, type: 2}
 --- !u!114 &11444400
 MonoBehaviour:
@@ -170,7 +170,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 05077a15ceed3fe4082200132f6d7e7b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  explosion: {fileID: 100012, guid: 384371afbb4354cc9a3fc68eab303756, type: 2}
+  explosion: {fileID: 100008, guid: a93496017806b7740910df5fd946f306, type: 2}
   playerExplosion: {fileID: 100008, guid: a93496017806b7740910df5fd946f306, type: 2}
   scoreValue: 50
 --- !u!114 &11469620

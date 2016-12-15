@@ -90,44 +90,70 @@ public class GameController : MonoBehaviour {
 	IEnumerator levelcount()
 	{
 
-		if (wavet == 1) 
-			for (int i = 0; i < 15; i++) {
+		if (wavet == 1) {
+			int y = Random.Range (5, 20);
+			for (int i = 0; i < y; i++) {
 				int x = Random.Range (0, hazard.Length);
 				Vector3 spawnPosition = new Vector3 (Random.Range (-spawnValues.x, spawnValues.x), spawnValues.y, spawnValues.z);
 				Quaternion spawnRotation = Quaternion.Euler (0, 180, 0);
 				Instantiate (hazard [0], spawnPosition, spawnRotation);
 				yield return new WaitForSeconds (spawnWait);
 			}
-		
-		else if (wavet == 2) {
-			for (int i = 0; i < 6; i++) {	
-				Vector3 spawnPosition = new Vector3 (-5, spawnValues.y, spawnValues.z);
+		} else if (wavet == 2) {
+			for (int i = 0; i < 6; i++) {
+				int x = Random.Range (-1, 1);	
+				Vector3 spawnPosition = new Vector3 (-5+x, spawnValues.y, spawnValues.z);
 				Quaternion spawnRotation = Quaternion.Euler (0, 180, 0);
 				Instantiate (hazard [0], spawnPosition, spawnRotation);
-				spawnPosition = new Vector3 (5, spawnValues.y, spawnValues.z);
+				x = Random.Range (-1, 1);
+				spawnPosition = new Vector3 (5+x, spawnValues.y, spawnValues.z);
 				spawnRotation = Quaternion.Euler (0, 180, 0);
 				Instantiate (hazard [0], spawnPosition, spawnRotation);
 				yield return new WaitForSeconds ((float)0.1);
-				spawnPosition = new Vector3 (-3, spawnValues.y, spawnValues.z);
+				x = Random.Range (-1, 1);
+				spawnPosition = new Vector3 (-3+x, spawnValues.y, spawnValues.z);
 				spawnRotation = Quaternion.Euler (0, 180, 0);
 				Instantiate (hazard [0], spawnPosition, spawnRotation);
-				spawnPosition = new Vector3 (3, spawnValues.y, spawnValues.z);
+				x = Random.Range (-1, 1);
+				spawnPosition = new Vector3 (3+x, spawnValues.y, spawnValues.z);
 				spawnRotation = Quaternion.Euler (0, 180, 0);
 				Instantiate (hazard [0], spawnPosition, spawnRotation);
 				yield return new WaitForSeconds ((float)0.1);
-				spawnPosition = new Vector3 (0, spawnValues.y, spawnValues.z);
+				x = Random.Range (-2, 2);
+				spawnPosition = new Vector3 (0+x, spawnValues.y, spawnValues.z);
 				spawnRotation = Quaternion.Euler (0, 180, 0);
 				Instantiate (hazard [0], spawnPosition, spawnRotation);
 				yield return new WaitForSeconds ((float)0.5);
 			}
-
 		} else if (wavet == 3) {
-			for (int i = 0; i < 10; i++) {
-				//int x = Random.Range (0, hazard.Length);
+			int y = Random.Range (10, 15);
+			for (int i = 0; i < y; i++) {
+				Vector3 spawnPosition = new Vector3 (Random.Range (-spawnValues.x, spawnValues.x), spawnValues.y, spawnValues.z);
+				Quaternion spawnRotation = Quaternion.Euler (0, 180, 0);
+				Instantiate (hazard [0], spawnPosition, spawnRotation);
+				yield return new WaitForSeconds ((float)0.9);
+				if (i % 2 == 0) {
+					spawnPosition = new Vector3 (Random.Range (-spawnValues.x, spawnValues.x), spawnValues.y, spawnValues.z);
+					spawnRotation = Quaternion.Euler (0, 180, 0);
+					Instantiate (hazard [1], spawnPosition, spawnRotation);
+					yield return new WaitForSeconds ((float)0.1);
+				}
+			}
+		}
+
+		else if (wavet == 4) {
+			for (int i = 0; i < 21; i++) {
 				Vector3 spawnPosition = new Vector3 (Random.Range (-spawnValues.x, spawnValues.x), spawnValues.y, -7); //z=-7 itu dari belakang
 				Quaternion spawnRotation = Quaternion.Euler (0, 0, 0);
 				Instantiate (hazard [0], spawnPosition, spawnRotation);
-				yield return new WaitForSeconds ((float)0.3);
+				yield return new WaitForSeconds ((float)0.5);
+				if (i % 3 == 0) {
+					spawnPosition = new Vector3 (Random.Range (-spawnValues.x, spawnValues.x), spawnValues.y, spawnValues.z);
+					spawnRotation = Quaternion.Euler (0, 180, 0);
+					Instantiate (hazard [1], spawnPosition, spawnRotation);
+					yield return new WaitForSeconds ((float)0.1);
+				}
+
 			}
 		}
 			
