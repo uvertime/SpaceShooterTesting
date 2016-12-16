@@ -154,7 +154,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d9808401c68af274a8edfbed3d1b53c7, type: 3}
       propertyPath: m_RootOrder
-      value: 3
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: d9808401c68af274a8edfbed3d1b53c7, type: 3}
       propertyPath: m_Name
@@ -237,7 +237,7 @@ MonoBehaviour:
     xMin: -6
     xMax: 6
     zMin: -4
-    zMax: 8
+    zMax: 9
   shot: {fileID: 172208, guid: 8c31b58dc2666d246b78bb2d3bbfe1ab, type: 2}
   shotSpawn: {fileID: 322852680}
   shotSpawnLong: {fileID: 0}
@@ -652,6 +652,8 @@ MonoBehaviour:
   hazard:
   - {fileID: 148108, guid: 746f0f6415bf0a74d861ad87e5249a24, type: 2}
   - {fileID: 148148, guid: f8e9765911d03a64cb2bba74e2c9d8fe, type: 2}
+  - {fileID: 196098, guid: 32ed70af20796d14ea6ba66a0ce10fae, type: 2}
+  - {fileID: 110762, guid: 94f60fe3ec2ada54b8e87d45c2ac1f6d, type: 2}
   spawnValues: {x: 6, y: 0, z: 16}
   hazardCount: 10
   spawnWait: 0.5
