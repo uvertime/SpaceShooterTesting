@@ -40,10 +40,11 @@ public class PlayerController : MonoBehaviour {
 			Instantiate (shot, shotSpawn.position, shotSpawn.rotation); //as GameObject ;
 			GetComponent<AudioSource>().Play ();
 		}
-		/*if (Input.GetKeyDown ("Fire1") && Time.time > nextFire) {
+		if (Input.GetButton ("Fire2") && Time.time > nextFire) {
 			nextFire = Time.time + fireRate2;
 			Instantiate (bulletDestroyed,shotSpawnLong.position,shotSpawnLong.rotation);
-		}*/
+			GetComponent<AudioSource> ().Play ();
+		}
 
 		//chris, disini bisa kamu kasih dash, ganti posisi aja.
 

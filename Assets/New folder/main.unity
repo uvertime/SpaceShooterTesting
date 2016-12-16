@@ -154,7 +154,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d9808401c68af274a8edfbed3d1b53c7, type: 3}
       propertyPath: m_RootOrder
-      value: 4
+      value: 3
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: d9808401c68af274a8edfbed3d1b53c7, type: 3}
       propertyPath: m_Name
@@ -240,10 +240,10 @@ MonoBehaviour:
     zMax: 9
   shot: {fileID: 172208, guid: 8c31b58dc2666d246b78bb2d3bbfe1ab, type: 2}
   shotSpawn: {fileID: 322852680}
-  shotSpawnLong: {fileID: 0}
+  shotSpawnLong: {fileID: 717486881}
   fireRate: 0.25
-  bulletDestroyed: {fileID: 0}
-  fireRate2: 0
+  bulletDestroyed: {fileID: 157096, guid: a8eb27433a6b233449d1cf163d3aded6, type: 2}
+  fireRate2: 0.5
 --- !u!64 &205855530
 MeshCollider:
   m_ObjectHideFlags: 0
@@ -612,6 +612,34 @@ Light:
   m_ShadowRadius: 0
   m_ShadowAngle: 0
   m_AreaSize: {x: 1, y: 1}
+--- !u!1 &717486880
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 717486881}
+  m_Layer: 0
+  m_Name: Shot Long
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &717486881
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 717486880}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 2}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children: []
+  m_Father: {fileID: 205855528}
+  m_RootOrder: 2
 --- !u!4 &932538498 stripped
 Transform:
   m_PrefabParentObject: {fileID: 457008, guid: 5c58f585f89111e4bb909f0966986553, type: 2}

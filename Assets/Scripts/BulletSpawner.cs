@@ -27,7 +27,7 @@ public class BulletSpawner : MonoBehaviour {
 			nextFire = Time.time + fireRate;
 			//GameObject clone = 
 			Instantiate (bullet, bulletBox.transform.position, bulletBox.transform.rotation); //as GameObject ;
-			//GetComponent<AudioSource>().Play ();
+			GetComponent<AudioSource>().Play ();
 		}
 	}
 }
