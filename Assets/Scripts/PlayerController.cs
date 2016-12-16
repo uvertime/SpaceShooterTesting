@@ -45,6 +45,8 @@ public class PlayerController : MonoBehaviour {
 			Instantiate (bulletDestroyed,shotSpawnLong.position,shotSpawnLong.rotation);
 		}*/
 
+		//chris, disini bisa kamu kasih dash, ganti posisi aja.
+
 	}
 
 	void FixedUpdate  ()
