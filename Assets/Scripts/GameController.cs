@@ -99,7 +99,12 @@ public class GameController : MonoBehaviour {
 
 	IEnumerator levelcount ()
 	{
-		
+		if(wavet%3==0){
+		Vector3 hore = new Vector3 (Random.Range (-spawnValues.x, spawnValues.x), spawnValues.y, spawnValues.z);
+		Quaternion hore2 = Quaternion.Euler (0, 180, 0);
+		Instantiate (hazard [5], hore, hore2);
+		yield return new WaitForSeconds ((float)1.5);
+		}
 		if (wavet == 1) 
 		{
 			int y = Random.Range (15, 20);

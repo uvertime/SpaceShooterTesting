@@ -13,7 +13,7 @@ public class PlayerController : MonoBehaviour {
 	public float tilt;
 	public Boundary boundary;
 	public GameObject shot;
-	public Transform shotSpawn;
+	public GameObject[] shotSpawn;
 	public Transform shotSpawnLong;
 	public float fireRate;
 	private float dash;
@@ -31,23 +31,35 @@ public class PlayerController : MonoBehaviour {
 		}
 		if (gameController == null) {
 			Debug.Log ("Cannot Find 'GameController' script");
-
 		}
 	}
 	void Update()
 	{
 		if (Input.GetButton ("Fire1") && Time.time > nextFire) {
 			nextFire = Time.time + fireRate;
-			Instantiate (shot, shotSpawn.position, shotSpawn.rotation); 
+			Instantiate (shot, shotSpawn[0].transform.position, shotSpawn[0].transform.rotation); 
+			if(gameController.lives >= 3){
+				Quaternion shot2 = Quaternion.Euler (0, 30, 0);
+				Quaternion shot3 = Quaternion.Euler (0, 330, 0);
+				Instantiate (shot, shotSpawn[1].transform.position, shot2);
+				Instantiate (shot, shotSpawn[2].transform.position, shot3);
+			}
+			if(gameController.lives >= 5){
+				Instantiate (shot, shotSpawn[3].transform.position, shotSpawn[3].transform.rotation);
+				Instantiate (shot, shotSpawn[4].transform.position, shotSpawn[4].transform.rotation);
+			}
 			GetComponent<AudioSource>().Play ();
 		}
+
+
+
 		if (Input.GetButton ("Fire2") && Time.time > nextFire) {
 			nextFire = Time.time + fireRate2;
 			Instantiate (bulletDestroyed,shotSpawnLong.position,shotSpawnLong.rotation);
 			GetComponent<AudioSource> ().Play ();
 		}
 
-		//chris, disini bisa kamu kasih dash, ganti posisi aja.
+
 
 	}
 
@@ -88,6 +100,7 @@ public class PlayerController : MonoBehaviour {
 				gameController.lives = gameController.lives - 1;
 				gameController.UpdateLives ();
 				nextinvul = Time.time + invultime;
+				Instantiate (playerExplosion, other.transform.position, other.transform.rotation);
 			} 
 			else 
 			{
