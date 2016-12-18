@@ -21,6 +21,8 @@ public class PlayerController : MonoBehaviour {
 	public GameObject bulletDestroyed;
 	private float nextFire;
 	public float fireRate2;
+	public float invultime;
+	private float nextinvul;
 	void Start()
 	{
 		GameObject gameControllerObject = GameObject.FindWithTag ("GameController");
@@ -36,8 +38,7 @@ public class PlayerController : MonoBehaviour {
 	{
 		if (Input.GetButton ("Fire1") && Time.time > nextFire) {
 			nextFire = Time.time + fireRate;
-			//GameObject clone = 
-			Instantiate (shot, shotSpawn.position, shotSpawn.rotation); //as GameObject ;
+			Instantiate (shot, shotSpawn.position, shotSpawn.rotation); 
 			GetComponent<AudioSource>().Play ();
 		}
 		if (Input.GetButton ("Fire2") && Time.time > nextFire) {
@@ -70,11 +71,37 @@ public class PlayerController : MonoBehaviour {
 	}
 
 	void OnTriggerEnter(Collider other){
-		if (other.tag == "enemy") {
-			Instantiate (playerExplosion, other.transform.position, other.transform.rotation);
+		if (other.tag == "powerup") 
+		{
+			gameController.lives = gameController.lives + 1;
+			gameController.UpdateLives ();
+		}
+
+		if (other.tag == "enemy") 
+		{
 			Destroy (other.gameObject);
-			Destroy (gameObject);
-			gameController.GameOver();
+			if (gameController.lives > 1) 
+			{
+				if (nextinvul>Time.time) {
+					return;
+				}
+				gameController.lives = gameController.lives - 1;
+				gameController.UpdateLives ();
+				nextinvul = Time.time + invultime;
+			} 
+			else 
+			{
+				if (Time.time < nextinvul) {
+					return;
+				}
+				gameController.lives = gameController.lives - 1;
+				gameController.UpdateLives ();
+				Destroy (gameObject);
+				gameController.GameOver ();
+				Instantiate (playerExplosion, other.transform.position, other.transform.rotation);
+				nextinvul = Time.time + invultime;
+			}
+
 		}
 
 	}

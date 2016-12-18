@@ -8,6 +8,7 @@ public class DestroyByContact : MonoBehaviour {
 	private GameController gameController;
 	private PlayerController playerController;
 
+
 	void Start()
 	{
 		GameObject gameControllerObject = GameObject.FindWithTag ("GameController");
@@ -23,26 +24,21 @@ public class DestroyByContact : MonoBehaviour {
 
 
 	void OnTriggerEnter(Collider other){
-		if (other.tag == "Player"){
-			/*if (Input.GetButton ("Dash")) {
-				return;
-			}
-			else */
-				Instantiate (playerExplosion, other.transform.position, other.transform.rotation);
-			gameController.GameOver ();
-		}
+		
 		if (other.tag == "Boundary") {
 			return;
 		}
 		if (other.tag == "enemy") {
 			return;
 		}
-
-		Instantiate (explosion, transform.position, transform.rotation);
-		Destroy(other.gameObject);
-		Destroy(gameObject);
-		//Debug.Log ("masuk");
-		gameController.AddScore (scoreValue);
+		if (other.tag == "Player") {
+			Instantiate (playerExplosion, other.transform.position, other.transform.rotation);
+		} else {
+			Instantiate (explosion, transform.position, transform.rotation);
+			Destroy (gameObject);
+			Destroy (other.gameObject);
+			gameController.AddScore (scoreValue);
+		}
 	}
 
 }
