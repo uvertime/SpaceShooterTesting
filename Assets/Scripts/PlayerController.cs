@@ -39,14 +39,16 @@ public class PlayerController : MonoBehaviour {
 			nextFire = Time.time + fireRate;
 			Instantiate (shot, shotSpawn[0].transform.position, shotSpawn[0].transform.rotation); 
 			if(gameController.lives >= 3){
-				Quaternion shot2 = Quaternion.Euler (0, 30, 0);
-				Quaternion shot3 = Quaternion.Euler (0, 330, 0);
+				Quaternion shot2 = Quaternion.Euler (0, 10, 0);
+				Quaternion shot3 = Quaternion.Euler (0, 350, 0);
 				Instantiate (shot, shotSpawn[1].transform.position, shot2);
 				Instantiate (shot, shotSpawn[2].transform.position, shot3);
 			}
 			if(gameController.lives >= 5){
-				Instantiate (shot, shotSpawn[3].transform.position, shotSpawn[3].transform.rotation);
-				Instantiate (shot, shotSpawn[4].transform.position, shotSpawn[4].transform.rotation);
+				Quaternion shot4 = Quaternion.Euler (0, 30, 0);
+				Quaternion shot5 = Quaternion.Euler (0, 330, 0);
+				Instantiate (shot, shotSpawn[3].transform.position, shot4);
+				Instantiate (shot, shotSpawn[4].transform.position, shot5);
 			}
 			GetComponent<AudioSource>().Play ();
 		}
