@@ -31,6 +31,9 @@ public class DestroyByContact : MonoBehaviour {
 		if (other.tag == "enemy") {
 			return;
 		}
+		if (other.tag == "powerup") {
+			return;
+		}
 		if (other.tag == "Player") {
 			Instantiate (playerExplosion, other.transform.position, other.transform.rotation);
 		} else {

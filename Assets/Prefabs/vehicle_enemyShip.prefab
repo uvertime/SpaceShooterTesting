@@ -246,7 +246,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explosion: {fileID: 100008, guid: a93496017806b7740910df5fd946f306, type: 2}
-  playerExplosion: {fileID: 100008, guid: a93496017806b7740910df5fd946f306, type: 2}
+  playerExplosion: {fileID: 100000, guid: bc0290eb454386141a1f4a4cf6a5c25b, type: 2}
   scoreValue: 50
 --- !u!114 &11469620
 MonoBehaviour:

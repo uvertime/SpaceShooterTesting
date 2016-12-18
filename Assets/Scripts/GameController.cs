@@ -102,10 +102,6 @@ public class GameController : MonoBehaviour {
 		
 		if (wavet == 1) 
 		{
-			Vector3 spawnPosition = new Vector3 (0, spawnValues.y, spawnValues.z);
-			Quaternion spawnRotation = Quaternion.Euler (0, 180, 0);
-			Instantiate (hazard [5], spawnPosition, spawnRotation);
-			/*
 			int y = Random.Range (15, 20);
 			for (int i = 0; i < y; i++) {
 				int x = Random.Range (0, hazard.Length);
@@ -113,7 +109,7 @@ public class GameController : MonoBehaviour {
 				Quaternion spawnRotation = Quaternion.Euler (0, 180, 0);
 				Instantiate (hazard [0], spawnPosition, spawnRotation);
 				yield return new WaitForSeconds (spawnWait);
-			}*/
+			}
 		} else if (wavet == 2) {
 			for (int i = 0; i < 6; i++) {
 				int x = Random.Range (-1, 1);	

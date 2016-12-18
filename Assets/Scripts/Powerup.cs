@@ -8,7 +8,6 @@ public class Powerup : MonoBehaviour {
 	{
 		if (other.tag == "Player") 
 		{
-
 			AudioSource.PlayClipAtPoint (powersound, transform.position);
 			Destroy (gameObject);
 		}
