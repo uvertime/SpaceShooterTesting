@@ -5,6 +5,7 @@ using UnityEngine.SceneManagement;
 
 public class GameController : MonoBehaviour {
 	public GameObject[] hazard;
+	public GameObject[] powerup;
 	public Vector3 spawnValues;
 	public int hazardCount;
 	public float spawnWait;
@@ -12,10 +13,12 @@ public class GameController : MonoBehaviour {
 	public float waveWait;
 	public GUIText scoreText;
 	public GUIText playerlives;
+	public GUIText bombcount;
 	private  int score;
 	private  int wavet;
 	private  bool wavedone;
 	public int lives;
+	public int bombs;
 	public GUIText WaveText;
 	public GUIText restartText;
 	public GUIText gameOverText;
@@ -23,6 +26,7 @@ public class GameController : MonoBehaviour {
 	private bool restart;
 	void Start(){
 		lives = 2;
+		bombs = 2;
 		gameOver = false;
 		restart = false;
 		restartText.text = "";
@@ -32,6 +36,7 @@ public class GameController : MonoBehaviour {
 		wavet = 1;
 		UpdateWave ();
 		UpdateLives ();
+		UpdateBomb ();
 		StartCoroutine (SpawnWaves ());
 	}
 
@@ -90,21 +95,38 @@ public class GameController : MonoBehaviour {
 
 	public void UpdateLives()
 	{
-		
 		playerlives.text = "Lives : " + lives;
 	}
+
+	public void UpdateBomb()
+	{
+		bombcount.text = "Bomb : " + bombs;
+	}
+
 
 	// mulai dari sini adalah desain level
 
 
 	IEnumerator levelcount ()
 	{
+		int chance = Random.Range (0, 100);
+		if(chance>=83){
+			Vector3 hore = new Vector3 (Random.Range (-spawnValues.x, spawnValues.x), spawnValues.y, spawnValues.z);
+			Quaternion hore2 = Quaternion.Euler (0, 180, 0);
+			Instantiate (powerup [1], hore, hore2);
+			yield return new WaitForSeconds ((float)0.5);
+		}
+			
+
+
 		if(wavet%3==0){
 		Vector3 hore = new Vector3 (Random.Range (-spawnValues.x, spawnValues.x), spawnValues.y, spawnValues.z);
 		Quaternion hore2 = Quaternion.Euler (0, 180, 0);
-		Instantiate (hazard [5], hore, hore2);
+		Instantiate (powerup [0], hore, hore2);
 		yield return new WaitForSeconds ((float)1.5);
 		}
+
+
 		if (wavet == 1) 
 		{
 			int y = Random.Range (15, 20);

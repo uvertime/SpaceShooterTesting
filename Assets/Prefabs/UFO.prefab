@@ -89,10 +89,10 @@ GameObject:
   - 4: {fileID: 459566}
   - 114: {fileID: 11486940}
   - 54: {fileID: 5405834}
-  - 114: {fileID: 11449774}
   - 135: {fileID: 13529688}
   - 114: {fileID: 11482102}
   - 82: {fileID: 8245500}
+  - 114: {fileID: 11490840}
   m_Layer: 0
   m_Name: UFO
   m_TagString: enemy
@@ -144,6 +144,21 @@ GameObject:
   - 4: {fileID: 495940}
   m_Layer: 0
   m_Name: UFOGun (3)
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &142718
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 480336}
+  m_Layer: 0
+  m_Name: UFOGun (7)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -237,7 +252,7 @@ GameObject:
   m_Component:
   - 4: {fileID: 405430}
   m_Layer: 0
-  m_Name: UFOGun (7)
+  m_Name: UFOGun (8)
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -262,13 +277,13 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 169270}
-  m_LocalRotation: {x: 0, y: 0.38268328, z: 0, w: -0.9238796}
+  m_LocalRotation: {x: 0, y: 1, z: 0, w: -0.00000016292068}
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
-  m_LocalEulerAnglesHint: {x: 0, y: 315, z: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 180, z: 0}
   m_Children: []
   m_Father: {fileID: 459566}
-  m_RootOrder: 7
+  m_RootOrder: 8
 --- !u!4 &406690
 Transform:
   m_ObjectHideFlags: 1
@@ -412,7 +427,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 125698}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2, y: 0, z: 1.656}
+  m_LocalPosition: {x: -4.163414, y: 1.6854067, z: 3.071581}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
@@ -423,9 +438,23 @@ Transform:
   - {fileID: 495940}
   - {fileID: 416894}
   - {fileID: 406690}
+  - {fileID: 480336}
   - {fileID: 405430}
   m_Father: {fileID: 0}
   m_RootOrder: 0
+--- !u!4 &480336
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 142718}
+  m_LocalRotation: {x: 0, y: 0.38268328, z: 0, w: -0.9238796}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 315, z: 0}
+  m_Children: []
+  m_Father: {fileID: 459566}
+  m_RootOrder: 7
 --- !u!4 &492776
 Transform:
   m_ObjectHideFlags: 1
@@ -739,20 +768,6 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
---- !u!114 &11449774
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 125698}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 05077a15ceed3fe4082200132f6d7e7b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  explosion: {fileID: 100008, guid: a93496017806b7740910df5fd946f306, type: 2}
-  playerExplosion: {fileID: 100008, guid: a93496017806b7740910df5fd946f306, type: 2}
-  scoreValue: 200
 --- !u!114 &11482102
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -772,8 +787,9 @@ MonoBehaviour:
   - {fileID: 142664}
   - {fileID: 114356}
   - {fileID: 160466}
+  - {fileID: 142718}
   - {fileID: 169270}
-  fireRate: 2
+  fireRate: 1
   playerExplosion: {fileID: 100008, guid: a93496017806b7740910df5fd946f306, type: 2}
   ufoBullet: {fileID: 164590, guid: ad07c2ec2302360449ac8bc085b0a1c1, type: 2}
 --- !u!114 &11486940
@@ -788,6 +804,20 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   speed: 3
+--- !u!114 &11490840
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 125698}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 795194548d601f54ca2a7555fc957023, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  hitpoints: 5
+  scoreValue: 150
+  explosion: {fileID: 100012, guid: 384371afbb4354cc9a3fc68eab303756, type: 2}
 --- !u!135 &13529688
 SphereCollider:
   m_ObjectHideFlags: 1

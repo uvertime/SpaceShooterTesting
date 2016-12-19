@@ -8,6 +8,9 @@ TagManager:
   - enemy
   - Enemy
   - Level
+  - Boundary
+  - bomb
+  - powershot
   layers:
   - Default
   - TransparentFX

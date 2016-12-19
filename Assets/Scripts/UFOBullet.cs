@@ -33,7 +33,8 @@ public class UFOBullet : MonoBehaviour {
 			Instantiate (ufoBullet, bulletBox[3].transform.position, bulletBox[3].transform.rotation);
 			Instantiate (ufoBullet, bulletBox[4].transform.position, bulletBox[4].transform.rotation);
 			Instantiate (ufoBullet, bulletBox[5].transform.position, bulletBox[5].transform.rotation);
-			Instantiate (ufoBullet, bulletBox[6].transform.position, bulletBox[6].transform.rotation);//as GameObject ;
+			Instantiate (ufoBullet, bulletBox[6].transform.position, bulletBox[6].transform.rotation);
+			Instantiate (ufoBullet, bulletBox[7].transform.position, bulletBox[7].transform.rotation);
 			GetComponent<AudioSource>().Play ();
 		}
 	}

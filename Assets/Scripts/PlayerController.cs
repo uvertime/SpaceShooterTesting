@@ -20,6 +20,7 @@ public class PlayerController : MonoBehaviour {
 	private PlayerController playerController;
 	public GameObject bulletDestroyed;
 	private float nextFire;
+	private float nextFire2;
 	public float fireRate2;
 	public float invultime;
 	private float nextinvul;
@@ -39,8 +40,8 @@ public class PlayerController : MonoBehaviour {
 			nextFire = Time.time + fireRate;
 			Instantiate (shot, shotSpawn[0].transform.position, shotSpawn[0].transform.rotation); 
 			if(gameController.lives >= 3){
-				Quaternion shot2 = Quaternion.Euler (0, 10, 0);
-				Quaternion shot3 = Quaternion.Euler (0, 350, 0);
+				Quaternion shot2 = Quaternion.Euler (0, 20, 0);
+				Quaternion shot3 = Quaternion.Euler (0, 340, 0);
 				Instantiate (shot, shotSpawn[1].transform.position, shot2);
 				Instantiate (shot, shotSpawn[2].transform.position, shot3);
 			}
@@ -55,10 +56,21 @@ public class PlayerController : MonoBehaviour {
 
 
 
-		if (Input.GetButton ("Fire2") && Time.time > nextFire) {
-			nextFire = Time.time + fireRate2;
-			Instantiate (bulletDestroyed,shotSpawnLong.position,shotSpawnLong.rotation);
+		if (Input.GetButton ("Fire2") && Time.time > nextFire2 && gameController.bombs > 0) {
+			nextFire2 = Time.time + fireRate2;
+			Quaternion shot1 = Quaternion.Euler (0, 0, 0);
+			Quaternion shot2 = Quaternion.Euler (0, 20, 0);
+			Quaternion shot3 = Quaternion.Euler (0, 40, 0);
+			Quaternion shot4 = Quaternion.Euler (0, 340, 0);
+			Quaternion shot5 = Quaternion.Euler (0, 320, 0);
+			Instantiate (bulletDestroyed,shotSpawnLong.position,shot1);
+			Instantiate (bulletDestroyed,shotSpawnLong.position,shot2);
+			Instantiate (bulletDestroyed,shotSpawnLong.position,shot3);
+			Instantiate (bulletDestroyed,shotSpawnLong.position,shot4);
+			Instantiate (bulletDestroyed,shotSpawnLong.position,shot5);
 			GetComponent<AudioSource> ().Play ();
+			gameController.bombs = gameController.bombs - 1;
+			gameController.UpdateBomb ();
 		}
 
 
@@ -90,7 +102,12 @@ public class PlayerController : MonoBehaviour {
 			gameController.lives = gameController.lives + 1;
 			gameController.UpdateLives ();
 		}
-
+		if (other.tag == "bomb") 
+		{
+			Debug.Log("masuk bom");
+			gameController.bombs = gameController.bombs + 1;
+			gameController.UpdateBomb ();
+		}
 		if (other.tag == "enemy") 
 		{
 			Destroy (other.gameObject);
