@@ -243,7 +243,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   explosion: {fileID: 100008, guid: a93496017806b7740910df5fd946f306, type: 2}
-  playerExplosion: {fileID: 0}
   scoreValue: 50
 --- !u!114 &11471428
 MonoBehaviour:
@@ -258,7 +257,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   bullet: {fileID: 164590, guid: 67eceb153818d6f4fa0388a973a8dad5, type: 2}
   bulletBox: {fileID: 156560}
-  fireRate: 0.7
+  fireRate: 1
   playerExplosion: {fileID: 100008, guid: a93496017806b7740910df5fd946f306, type: 2}
 --- !u!136 &13609984
 CapsuleCollider:
