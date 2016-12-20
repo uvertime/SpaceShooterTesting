@@ -24,6 +24,7 @@ public class MenuManager : MonoBehaviour {
 
 	public void ChangeToOptions (string sceneToChangeTo) {
 		Application.LoadLevel (sceneToChangeTo);
+
 	}
 
 	public void setMasterVolume (float value){

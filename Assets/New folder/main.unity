@@ -111,7 +111,6 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children:
-  - {fileID: 2025126473}
   - {fileID: 1933618589}
   - {fileID: 932538498}
   - {fileID: 1182010076}
@@ -366,6 +365,48 @@ AudioSource:
     m_PreInfinity: 2
     m_PostInfinity: 2
     m_RotationOrder: 0
+--- !u!1 &238884081
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 238884083}
+  - 114: {fileID: 238884082}
+  m_Layer: 0
+  m_Name: GameObject
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &238884082
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 238884081}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc75ee7c5071fae43a2a30ae989c9d44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  score: {fileID: 2025126470}
+--- !u!4 &238884083
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 238884081}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 437.5, y: 159, z: -10}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+  m_Children:
+  - {fileID: 2025126473}
+  m_Father: {fileID: 0}
+  m_RootOrder: 8
 --- !u!1 &292172707
 GameObject:
   m_ObjectHideFlags: 0
@@ -581,7 +622,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 457008, guid: 5c58f585f89111e4bb909f0966986553, type: 2}
       propertyPath: m_RootOrder
-      value: 2
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 5c58f585f89111e4bb909f0966986553, type: 2}
@@ -615,7 +656,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 138075738}
-  m_RootOrder: 4
+  m_RootOrder: 3
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 1.0685921, y: 1.85088}
@@ -994,7 +1035,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 138075738}
-  m_RootOrder: 3
+  m_RootOrder: 2
 --- !u!1 &1194761670
 GameObject:
   m_ObjectHideFlags: 0
@@ -1086,7 +1127,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 138075738}
-  m_RootOrder: 5
+  m_RootOrder: 4
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
   m_AnchoredPosition: {x: 1.0685921, y: 1.83}
@@ -1388,7 +1429,7 @@ Transform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
   m_Father: {fileID: 138075738}
-  m_RootOrder: 1
+  m_RootOrder: 0
 --- !u!1 &2025126470
 GameObject:
   m_ObjectHideFlags: 0
@@ -1399,6 +1440,7 @@ GameObject:
   - 224: {fileID: 2025126473}
   - 222: {fileID: 2025126472}
   - 132: {fileID: 2025126471}
+  - 114: {fileID: 2025126474}
   m_Layer: 0
   m_Name: ScoreText
   m_TagString: Untagged
@@ -1442,17 +1484,29 @@ RectTransform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 2025126470}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: -4.524173}
+  m_LocalPosition: {x: 0, y: 0, z: 10}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_Children: []
-  m_Father: {fileID: 138075738}
+  m_Father: {fileID: 238884083}
   m_RootOrder: 0
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 1.0685931, y: 1.8750881}
+  m_AnchoredPosition: {x: -437.5, y: -158}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &2025126474
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 2025126470}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: bc75ee7c5071fae43a2a30ae989c9d44, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  score: {fileID: 2025126470}
 --- !u!1 &2102177913
 GameObject:
   m_ObjectHideFlags: 0

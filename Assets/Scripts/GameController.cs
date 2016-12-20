@@ -86,6 +86,9 @@ public class GameController : MonoBehaviour {
 	public void GameOver(){
 		gameOverText.text = "Game Over";
 		gameOver = true;
+		SceneManager.LoadScene ("Game Over Dewi");
+		DontDestroyOnLoad (transform.gameObject);
+		scoreText.text = "Score: " + score;
 	}
 
 	void UpdateWave()

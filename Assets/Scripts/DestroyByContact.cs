@@ -41,6 +41,7 @@ public class DestroyByContact : MonoBehaviour {
 			Destroy (gameObject);
 			if(other.tag != "powershot")Destroy (other.gameObject);
 			gameController.AddScore (scoreValue);
+			DontDestroyOnLoad (transform.gameObject);
 		}
 	}
 
