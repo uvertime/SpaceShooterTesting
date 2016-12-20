@@ -881,6 +881,7 @@ MonoBehaviour:
   - {fileID: 110762, guid: 94f60fe3ec2ada54b8e87d45c2ac1f6d, type: 2}
   - {fileID: 125698, guid: f9c859d19530f21429dcd78bfc44ec4f, type: 2}
   - {fileID: 181664, guid: 7a8ec49e41943d14dbdedd1445ee6234, type: 2}
+  - {fileID: 198864, guid: fcc959e53a5bcbf4ba73c0443d681c20, type: 2}
   powerup:
   - {fileID: 117998, guid: a4475fabad5e4c0498874ac47d8971df, type: 2}
   - {fileID: 170788, guid: 9b2508430d3bea245a265100476ece3e, type: 2}
