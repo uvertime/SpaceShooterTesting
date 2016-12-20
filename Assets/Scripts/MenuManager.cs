@@ -27,6 +27,10 @@ public class MenuManager : MonoBehaviour {
 
 	}
 
+	public void tomenu(){
+		SceneManager.LoadScene ("MainMenu dewi");
+	}
+
 	public void setMasterVolume (float value){
 		
 	}
