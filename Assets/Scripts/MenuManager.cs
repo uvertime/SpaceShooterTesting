@@ -31,10 +31,6 @@ public class MenuManager : MonoBehaviour {
 		SceneManager.LoadScene ("MainMenu dewi");
 	}
 
-	public void toinstructionsscene(){
-		SceneManager.LoadScene ("HowToPlay");
-	}
-
 	public void setMasterVolume (float value){
 		
 	}
