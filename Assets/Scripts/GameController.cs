@@ -88,6 +88,11 @@ public class GameController : MonoBehaviour {
 		gameOver = true;
 		SceneManager.LoadScene ("Game Over");
 		scoreText.text = "Score: " + score;
+	//	Text = "Score: " + score; 
+	}
+
+	public void scoregameover(){
+		scoreText.text = "Score: " + score;
 	}
 
 	void UpdateWave()

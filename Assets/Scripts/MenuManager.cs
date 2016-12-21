@@ -22,14 +22,15 @@ public class MenuManager : MonoBehaviour {
 		SceneManager.LoadScene ("Option scene dewi");
 	}
 
-	public void ChangeToOptions (string sceneToChangeTo) {
-		Application.LoadLevel (sceneToChangeTo);
-
-	}
-
 	public void tomenu(){
 		SceneManager.LoadScene ("MainMenu dewi");
 	}
+
+	public void toinstructionscene(){
+		SceneManager.LoadScene ("HowToPlay");
+	}
+
+
 
 	public void setMasterVolume (float value){
 		
