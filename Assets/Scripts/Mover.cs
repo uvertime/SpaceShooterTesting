@@ -7,12 +7,16 @@ public class Mover : MonoBehaviour {
 	private Transform MyPosition;
 	void Start ()
 	{
+		
 		GetComponent<Rigidbody> ().velocity = GetComponent<Transform>().forward * speed;
 		MyPosition = GetComponent<Transform> ();
 	}
-	void update(){
-		if (stop && MyPosition.position.z <= 13)
-			GetComponent<Rigidbody> ().velocity = GetComponent<Transform>().forward * 0;
-	}
+	void Update(){
+		Debug.Log (MyPosition.position.z);
+		if (stop && MyPosition.position.z <= 8)
+			
+			GetComponent<Rigidbody> ().velocity = GetComponent<Transform>().forward * speed * 0;
+
+		}
 		
 }
