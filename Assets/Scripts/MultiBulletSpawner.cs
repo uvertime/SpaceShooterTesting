@@ -4,7 +4,7 @@ using System.Collections;
 public class MultiBulletSpawner : MonoBehaviour {
 
 	public GameObject bullet;
-	public GameObject bulletBox;
+	public GameObject []bulletBox;
 	private GameController gameController;
 	private PlayerController playerController;
 	public float fireRate;
@@ -16,12 +16,9 @@ public class MultiBulletSpawner : MonoBehaviour {
 
 		if (Time.time > nextFire) {
 			nextFire = Time.time + fireRate;
-			Quaternion shot1 = Quaternion.Euler (0, 0, 0);
-			Quaternion shot2 = Quaternion.Euler (0, 30, 0);
-			Quaternion shot3 = Quaternion.Euler (0, 330, 0);
-			Instantiate (bullet, bulletBox.transform.position, shot1); 
-			Instantiate (bullet, bulletBox.transform.position, shot2);
-			Instantiate (bullet, bulletBox.transform.position, shot3);
+			Instantiate (bullet, bulletBox[0].transform.position, bulletBox[0].transform.rotation); 
+			Instantiate (bullet, bulletBox[1].transform.position, bulletBox[1].transform.rotation);
+			Instantiate (bullet, bulletBox[2].transform.position, bulletBox[2].transform.rotation);
 			GetComponent<AudioSource>().Play ();
 		}
 	}

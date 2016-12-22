@@ -184,7 +184,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 400000, guid: d9808401c68af274a8edfbed3d1b53c7, type: 3}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 100000, guid: d9808401c68af274a8edfbed3d1b53c7, type: 3}
       propertyPath: m_Name
@@ -841,6 +841,8 @@ MonoBehaviour:
   - {fileID: 125698, guid: f9c859d19530f21429dcd78bfc44ec4f, type: 2}
   - {fileID: 181664, guid: 7a8ec49e41943d14dbdedd1445ee6234, type: 2}
   - {fileID: 198864, guid: fcc959e53a5bcbf4ba73c0443d681c20, type: 2}
+  - {fileID: 152804, guid: 448d49b0b67abcd4f802eb3a3710380a, type: 2}
+  - {fileID: 181758, guid: f952ff94508ef804d9bb1d7daaedc692, type: 2}
   powerup:
   - {fileID: 117998, guid: a4475fabad5e4c0498874ac47d8971df, type: 2}
   - {fileID: 170788, guid: 9b2508430d3bea245a265100476ece3e, type: 2}
@@ -1295,7 +1297,7 @@ Transform:
   - {fileID: 641542357}
   - {fileID: 1194761671}
   m_Father: {fileID: 0}
-  m_RootOrder: 3
+  m_RootOrder: 4
 --- !u!1001 &1876080230
 Prefab:
   m_ObjectHideFlags: 0
