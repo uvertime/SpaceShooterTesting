@@ -620,7 +620,7 @@ GUIText:
   m_Text: Wave Text
   m_Anchor: 6
   m_Alignment: 1
-  m_PixelOffset: {x: 525, y: 300}
+  m_PixelOffset: {x: 525, y: 240}
   m_LineSpacing: 1
   m_TabSize: 4
   m_Font: {fileID: 0}
@@ -842,7 +842,7 @@ GUIText:
   m_Text: Score Text
   m_Anchor: 6
   m_Alignment: 1
-  m_PixelOffset: {x: 560, y: 360}
+  m_PixelOffset: {x: 560, y: 300}
   m_LineSpacing: 1
   m_TabSize: 4
   m_Font: {fileID: 0}

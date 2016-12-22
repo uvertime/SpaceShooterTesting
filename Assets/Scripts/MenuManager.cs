@@ -30,9 +30,7 @@ public class MenuManager : MonoBehaviour {
 		SceneManager.LoadScene ("HowToPlay");
 	}
 
-
-
-	public void setMasterVolume (float value){
-		
+	public void storyscene(){
+		SceneManager.LoadScene ("Story");
 	}
 }
