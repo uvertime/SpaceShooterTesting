@@ -11,6 +11,7 @@ TagManager:
   - Boundary
   - bomb
   - powershot
+  - radiostrontium
   layers:
   - Default
   - TransparentFX

@@ -34,6 +34,12 @@ public class DestroyByContact : MonoBehaviour {
 		if (other.tag == "powerup") {
 			return;
 		}
+		if (other.tag == "bomb") {
+			return;
+		}
+		if (other.tag == "radiostrontium") {
+			return;
+		}
 		if (other.tag == "Player") {
 			//Instantiate (playerExplosion, other.transform.position, other.transform.rotation);
 		} else {

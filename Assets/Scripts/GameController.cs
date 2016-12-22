@@ -21,6 +21,7 @@ public class GameController : MonoBehaviour {
 	public static int wavefinal;
 	public int lives;
 	public int bombs;
+	public int pola;
 	public GUIText WaveText;
 	public GUIText restartText;
 	public GUIText gameOverText;
@@ -31,6 +32,7 @@ public class GameController : MonoBehaviour {
 	void Start(){
 		lives = 2;
 		bombs = 2;
+		pola = 0;
 		gameOver = false;
 		restart = false;
 		bossdone = false;
@@ -140,10 +142,9 @@ public class GameController : MonoBehaviour {
 		yield return new WaitForSeconds ((float)1.5);
 		}
 
-		if (wavet == 25) {
+		if (wavet == 1) {
 			int y = Random.Range (15, 20);
 			for (int i = 0; i < y; i++) {
-				int x = Random.Range (0, hazard.Length);
 				Vector3 spawnPosition = new Vector3 (Random.Range (-spawnValues.x, spawnValues.x), spawnValues.y, spawnValues.z);
 				Quaternion spawnRotation = Quaternion.Euler (0, 180, 0);
 				Instantiate (hazard [0], spawnPosition, spawnRotation);
@@ -732,12 +733,25 @@ public class GameController : MonoBehaviour {
 				}
 			}
 			yield return new WaitForSeconds ((float)6.2);
-		} else if (wavet == 1) {
-			StartCoroutine(Bossfight ());
-			yield return new WaitUntil (()=>bossdone2);
+		} else if (wavet == 25) {
+			Vector3 hore = new Vector3 (Random.Range (-spawnValues.x, spawnValues.x), spawnValues.y, spawnValues.z);
+			Quaternion hore2 = Quaternion.Euler (0, 180, 0);
+			Instantiate (powerup [0], hore, hore2);
 			Vector3 spawnPosition = new Vector3 (0, spawnValues.y, spawnValues.z);
 			Quaternion spawnRotation = Quaternion.Euler (0, 180, 0);
-			//Instantiate (hazard [x], spawnPosition, spawnRotation);
+			Instantiate (powerup[1], spawnPosition, spawnRotation);
+			yield return new WaitForSeconds ((float)5.0);
+			spawnPosition = new Vector3 (0, spawnValues.y, spawnValues.z);
+			spawnRotation = Quaternion.Euler (0, 180, 0);
+			Instantiate (hazard[9], spawnPosition, spawnRotation);
+			StartCoroutine(Bossfight ());
+			yield return new WaitUntil (()=>bossdone2);
+			spawnPosition = new Vector3 (0, spawnValues.y, spawnValues.z);
+			spawnRotation = Quaternion.Euler (0, 180, 0);
+			scorefinal = score;
+			wavefinal = wavet;
+			Instantiate (powerup[2], spawnPosition, spawnRotation);
+			yield return new WaitUntil (()=>!bossdone2);
 		}
 
 		else  
@@ -756,22 +770,18 @@ public class GameController : MonoBehaviour {
 
 	IEnumerator Bossfight ()
 	{
+		Vector3 spawnPosition;
+		Quaternion spawnRotation;
 		int pola = 0;
-		Vector3 hore = new Vector3 (Random.Range (-spawnValues.x, spawnValues.x), spawnValues.y, spawnValues.z);
-		Quaternion hore2 = Quaternion.Euler (0, 180, 0);
-		Instantiate (powerup [0], hore, hore2);
-		Vector3 spawnPosition = new Vector3 (0, spawnValues.y, spawnValues.z);
-		Quaternion spawnRotation = Quaternion.Euler (0, 180, 0);
-		Instantiate (powerup[1], spawnPosition, spawnRotation);
-		yield return new WaitForSeconds ((float)0.3);
+
 		while (!bossdone) {
 			if (pola % 3 == 0) {
-				for (int i = 0; i < 60; i++) {
+				for (int i = 0; i < 50; i++) {
 					spawnPosition = new Vector3 (Random.Range (-spawnValues.x, spawnValues.x), spawnValues.y, spawnValues.z);
 					spawnRotation = Quaternion.Euler (0, 180, 0);
 					Instantiate (hazard [7], spawnPosition, spawnRotation);
-					yield return new WaitForSeconds ((float)0.1);
-					if (i % 10 == 0) {
+					yield return new WaitForSeconds ((float)0.2);
+					if (i % 15 == 0) {
 						spawnPosition = new Vector3 (spawnValues.x + 1, spawnValues.y, Random.Range (-4, 13));
 						spawnRotation = Quaternion.Euler (0, 270, 0);
 						Instantiate (hazard [8], spawnPosition, spawnRotation);
@@ -785,25 +795,25 @@ public class GameController : MonoBehaviour {
 					spawnPosition = new Vector3 (Random.Range (-spawnValues.x, spawnValues.x), spawnValues.y, spawnValues.z);
 					spawnRotation = Quaternion.Euler (0, 180, 0);
 					Instantiate (hazard [5], spawnPosition, spawnRotation);
-					yield return new WaitForSeconds ((float)0.85);
+					yield return new WaitForSeconds ((float)0.8);
 
 				}
 			}
 
 			if (pola % 3 == 2) {
-				for (int i = 0; i < 7; i++) {
+				for (int i = 0; i < 3; i++) {
 					if (i % 2 == 0) {
 						spawnPosition = new Vector3 (spawnValues.x + 1, spawnValues.y, Random.Range (-4, 13));
 						spawnRotation = Quaternion.Euler (0, 270, 0);
 						Instantiate (hazard [4], spawnPosition, spawnRotation);
-						yield return new WaitForSeconds ((float)0.1);
+						yield return new WaitForSeconds ((float)1.0);
 					}
 					else 
 					{
 						spawnPosition = new Vector3 (-spawnValues.x - 1, spawnValues.y, Random.Range (-4, 13));
 						spawnRotation = Quaternion.Euler (0, 90, 0);
 						Instantiate (hazard [4], spawnPosition, spawnRotation);
-						yield return new WaitForSeconds ((float)0.1);
+						yield return new WaitForSeconds ((float)1.0);
 					}
 					yield return new WaitForSeconds ((float)1.5);
 				}
@@ -812,7 +822,6 @@ public class GameController : MonoBehaviour {
 			yield return new WaitForSeconds (waveWait);
 			yield return new WaitForSeconds (waveWait);
 		}
-		Debug.Log ("bossdone");
 		bossdone2 = true;
 
 	}

@@ -23,10 +23,6 @@ public class DestroyByBullet : MonoBehaviour {
 
 	void OnTriggerEnter(Collider other){
 		if (other.tag == "enemy"){
-			/*if (Input.GetButton ("Dash")) {
-				return;
-			}
-			else */
 			Instantiate (playerExplosion, other.transform.position, other.transform.rotation);
 			gameController.GameOver ();
 		}
@@ -35,7 +31,6 @@ public class DestroyByBullet : MonoBehaviour {
 		}
 		Destroy(other.gameObject);
 		Destroy(gameObject);
-		Debug.Log ("masuk");
 
 	}
 

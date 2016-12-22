@@ -25,10 +25,6 @@ public class DestroyingBullet : MonoBehaviour {
 
 	void OnTriggerEnter(Collider other){
 		if (other.tag == "Player"){
-			/*if (Input.GetButton ("Dash")) {
-				return;
-			}
-			else */
 				Instantiate (playerExplosion, other.transform.position, other.transform.rotation);
 			gameController.GameOver ();
 		}
@@ -39,6 +35,16 @@ public class DestroyingBullet : MonoBehaviour {
 			//Instantiate (bulletDestroy, bulletBox.transform.position, bulletBox.transform.rotation);
 			return;
 		}
+		if (other.tag == "powerup") {
+			return;
+		}
+		if (other.tag == "bomb") {
+			return;
+		}
+		if (other.tag == "radiostrontium") {
+			return;
+		}
+
 
 		Instantiate (explosion, transform.position, transform.rotation);
 

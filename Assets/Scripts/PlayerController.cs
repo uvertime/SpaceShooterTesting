@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.SceneManagement;
 [System.Serializable]
 public class Boundary
 {
@@ -13,7 +14,7 @@ public class PlayerController : MonoBehaviour {
 	public float tilt;
 	public Boundary boundary;
 	public GameObject shot;
-	public GameObject[] shotSpawn;
+	public GameObject shotSpawn;
 	public Transform shotSpawnLong;
 	public float fireRate;
 	private float dash;
@@ -38,18 +39,17 @@ public class PlayerController : MonoBehaviour {
 	{
 		if (Input.GetButton ("Fire1") && Time.time > nextFire) {
 			nextFire = Time.time + fireRate;
-			Instantiate (shot, shotSpawn[0].transform.position, shotSpawn[0].transform.rotation); 
+
+			Instantiate (shot, shotSpawn.transform.position, shotSpawn.transform.rotation); 
 			if(gameController.lives >= 3){
-				Quaternion shot2 = Quaternion.Euler (0, 20, 0);
-				Quaternion shot3 = Quaternion.Euler (0, 340, 0);
-				Instantiate (shot, shotSpawn[1].transform.position, shot2);
-				Instantiate (shot, shotSpawn[2].transform.position, shot3);
+				Instantiate (shot, shotSpawn.transform.position, Quaternion.Euler (0, 20, 0));
+				Instantiate (shot, shotSpawn.transform.position, Quaternion.Euler (0, 340, 0));
 			}
 			if(gameController.lives >= 5){
 				Quaternion shot4 = Quaternion.Euler (0, 30, 0);
 				Quaternion shot5 = Quaternion.Euler (0, 330, 0);
-				Instantiate (shot, shotSpawn[3].transform.position, shot4);
-				Instantiate (shot, shotSpawn[4].transform.position, shot5);
+				Instantiate (shot, shotSpawn.transform.position, shot4);
+				Instantiate (shot, shotSpawn.transform.position, shot5);
 			}
 			GetComponent<AudioSource>().Play ();
 		}
@@ -104,9 +104,11 @@ public class PlayerController : MonoBehaviour {
 		}
 		if (other.tag == "bomb") 
 		{
-			Debug.Log("masuk bom");
 			gameController.bombs = gameController.bombs + 1;
 			gameController.UpdateBomb ();
+		}
+		if (other.tag == "radiostrontium") {
+			SceneManager.LoadScene ("Game Over");//scene final
 		}
 		if (other.tag == "enemy") 
 		{
