@@ -14,8 +14,8 @@ public class GameController : MonoBehaviour {
 	public GUIText scoreText;
 	public GUIText playerlives;
 	public GUIText bombcount;
-	private  int score;
-	private  int wavet;
+	public  static int score;
+	public  static int wavet;
 	private  bool wavedone;
 	public static int scorefinal;
 	public static int wavefinal;
