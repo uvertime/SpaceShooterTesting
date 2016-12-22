@@ -859,6 +859,7 @@ MonoBehaviour:
   WaveText: {fileID: 932538499}
   restartText: {fileID: 1933618588}
   gameOverText: {fileID: 1182010075}
+  bossdone: 0
 --- !u!4 &1010080280
 Transform:
   m_ObjectHideFlags: 0
