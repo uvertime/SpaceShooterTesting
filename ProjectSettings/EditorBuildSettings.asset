@@ -19,3 +19,5 @@ EditorBuildSettings:
     path: Assets/New folder/Story.unity
   - enabled: 1
     path: Assets/New folder/Congrats.unity
+  - enabled: 1
+    path: Assets/New folder/Credits.unity
