@@ -108,7 +108,7 @@ public class PlayerController : MonoBehaviour {
 			gameController.UpdateBomb ();
 		}
 		if (other.tag == "radiostrontium") {
-			SceneManager.LoadScene ("Game Over");//scene final
+			SceneManager.LoadScene ("Congrats");//scene final
 		}
 		if (other.tag == "enemy") 
 		{
